@@ -26,7 +26,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dubai, UAE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxc-U5-fcr">
-                                        <rect key="frame" x="0.0" y="145.33333333333334" width="353" height="51"/>
+                                        <rect key="frame" x="75.666666666666671" y="145.33333333333334" width="201.66666666666663" height="51"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -35,8 +35,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Sxc-U5-fcr" firstAttribute="centerX" secondItem="POj-AE-ha1" secondAttribute="centerX" id="3Df-ah-ouS"/>
-                                    <constraint firstItem="Sxc-U5-fcr" firstAttribute="leading" secondItem="xV8-nA-hfJ" secondAttribute="leading" id="BQ4-Lq-2OB"/>
-                                    <constraint firstAttribute="trailing" secondItem="Sxc-U5-fcr" secondAttribute="trailing" id="LTt-ox-CoJ"/>
+                                    <constraint firstItem="Sxc-U5-fcr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xV8-nA-hfJ" secondAttribute="leading" id="BQ4-Lq-2OB"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Sxc-U5-fcr" secondAttribute="trailing" id="LTt-ox-CoJ"/>
                                     <constraint firstItem="POj-AE-ha1" firstAttribute="centerX" secondItem="xV8-nA-hfJ" secondAttribute="centerX" id="nnO-4E-9QL"/>
                                     <constraint firstItem="POj-AE-ha1" firstAttribute="centerY" secondItem="xV8-nA-hfJ" secondAttribute="centerY" constant="-16" id="sxQ-cC-eUt"/>
                                     <constraint firstItem="Sxc-U5-fcr" firstAttribute="top" secondItem="POj-AE-ha1" secondAttribute="bottom" constant="8" id="yCd-xx-gT7"/>
