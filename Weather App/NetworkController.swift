@@ -9,21 +9,28 @@ import Foundation
 
 struct NetworkController {
     
-    private static var baseUrl = "https://api.openweathermap.org"
-    private static var path = "/data/2.5/weather"
-    
+    private static var baseUrl = "api.openweathermap.org"
+    private static var appapi = ""
     enum EndPoint {
-        case cityId(path: String, id: Int)
+        case cityId(path: String = "/data/2.5/weather", id: Int)
         
         var url: URL? {
             var components = URLComponents()
             components.scheme = "https"
-            components.host = NetworkController.baseUrl
-            components.path = NetworkController.path
+            components.host = baseUrl
+            components.path = path
             components.queryItems = queryItems
             
             return components.url
             
+        }
+        
+        private var path: String {
+            switch self {
+            case .cityId(let path, _):
+                return path
+                
+            }
         }
         
         var queryItems: [URLQueryItem] {
@@ -34,9 +41,32 @@ struct NetworkController {
             case .cityId(_,let id):
                 queryItems.append(URLQueryItem(name: "id", value: String(id)))
             }
-            queryItems.append(URLQueryItem(name: "appid", value: "1234"))
+            queryItems.append(URLQueryItem(name: "appid", value: appapi))
             
             return queryItems
         }
+    }
+    
+    static func fetchWeather(for cityId: Int, _ completion: @escaping ((Weather) -> Void)) {
+        print("hello world")
+        if let url = EndPoint.cityId(id: cityId).url {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    print("Error Occured: \(error)")
+                }
+                
+                if let data = data {
+                    do{
+                        let weather = try JSONDecoder().decode(Weather.self, from: data)
+                        completion(weather)
+                    }
+                    catch {
+                        print("Catch Error \(error)")
+                    }
+                    
+                }
+            }.resume()
+        }
+        
     }
 }
