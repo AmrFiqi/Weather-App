@@ -54,7 +54,7 @@ class HomeViewModel {
     
     // MARK: - Class Methods
     
-    func fetchWeather(for cityId: Int = 360630, _ completion: @escaping (() -> Void)) {
+    func fetchWeather(for cityId: Int = 2172797, _ completion: @escaping (() -> Void)) {
         NetworkController.fetchWeather(for: cityId) { weather in
             self.weather = weather
             completion()
