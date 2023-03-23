@@ -27,3 +27,29 @@ struct Weather: Decodable {
         }
     }
 }
+
+extension Weather {
+    var temp: Double {
+        return main.temp
+    }
+    
+    var feelsLike: Double {
+        return main.feelsLike
+    }
+    
+    var minTemp: Double {
+        return main.minTemp
+    }
+    
+    var maxTemp: Double {
+        return main.maxTemp
+    }
+    
+    var pressure: Double {
+        return main.pressure
+    }
+    
+    var humidity: Double {
+        return main.humidity
+    }
+}

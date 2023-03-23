@@ -48,7 +48,7 @@ struct NetworkController {
     }
     
     static func fetchWeather(for cityId: Int, _ completion: @escaping ((Weather) -> Void)) {
-        print("hello world")
+      
         if let url = EndPoint.cityId(id: cityId).url {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let error = error {

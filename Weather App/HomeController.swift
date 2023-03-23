@@ -7,32 +7,22 @@
 
 import UIKit
 
-class HomeViewModel {
-    private var main: Weather.Main? {
-        return weather?.main
-    }
-    
-    var weather: Weather?
-    var tempratureString: String {
-        return "\(String(main?.temp ?? 0))° F"
-    }
-    var nameString: String {
-        return String(weather?.name ?? "")
-    }
-    func fetchWeather(for cityId: Int = 2172797, _ completion: @escaping (() -> Void)) {
-        NetworkController.fetchWeather(for: cityId) { weather in
-            self.weather = weather
-            completion()
-        }
-    }
-}
 
 class HomeController: UIViewController {
+    
+    // MARK: - Variables
     
     private let viewModel = HomeViewModel()
     
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var feelsLikeLabel: UILabel!
+    @IBOutlet var minTempLabel: UILabel!
+    @IBOutlet var maxTempLabel: UILabel!
+    @IBOutlet var pressureLabel: UILabel!
+    @IBOutlet var humidityLabel: UILabel!
+    
+    // MARK: - Class Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +31,28 @@ class HomeController: UIViewController {
         viewModel.fetchWeather { [weak self] in
             DispatchQueue.main.async {
                 self?.setupUI()
+                self?.setupHeader()
+                self?.setupSubheader()
             }
         }
-        
     }
     
     private func setupUI() {
+        
+    }
+    
+    private func setupHeader() {
         tempLabel.text = viewModel.tempratureString
         nameLabel.text = viewModel.nameString
     }
-
-
+    
+    private func setupSubheader() {
+        feelsLikeLabel.text = viewModel.feelsLikeTempString
+        minTempLabel.text = viewModel.minTempString
+        maxTempLabel.text = viewModel.maxTempString
+        pressureLabel.text = viewModel.pressureString
+        humidityLabel.text = viewModel.humidityString
+    }
+    
 }
 

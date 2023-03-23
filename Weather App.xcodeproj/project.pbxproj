@@ -15,6 +15,8 @@
 		E5DC2AC029C6D082006D5F48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DC2ABE29C6D082006D5F48 /* LaunchScreen.storyboard */; };
 		E5DC2AC829C6DC2C006D5F48 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC2AC729C6DC2C006D5F48 /* NetworkController.swift */; };
 		E5DC2ACA29C6DC8E006D5F48 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC2AC929C6DC8E006D5F48 /* Weather.swift */; };
+		E5DC2ACC29CC35E6006D5F48 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC2ACB29CC35E6006D5F48 /* HomeViewModel.swift */; };
+		E5DC2ACE29CC362D006D5F48 /* Double.Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC2ACD29CC362D006D5F48 /* Double.Conversion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		E5DC2AC129C6D082006D5F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5DC2AC729C6DC2C006D5F48 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		E5DC2AC929C6DC8E006D5F48 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		E5DC2ACB29CC35E6006D5F48 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E5DC2ACD29CC362D006D5F48 /* Double.Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.Conversion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				E5DC2ABC29C6D082006D5F48 /* Assets.xcassets */,
 				E5DC2ABE29C6D082006D5F48 /* LaunchScreen.storyboard */,
 				E5DC2AC129C6D082006D5F48 /* Info.plist */,
+				E5DC2ACB29CC35E6006D5F48 /* HomeViewModel.swift */,
+				E5DC2ACD29CC362D006D5F48 /* Double.Conversion.swift */,
 			);
 			path = "Weather App";
 			sourceTree = "<group>";
@@ -145,6 +151,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5DC2AC829C6DC2C006D5F48 /* NetworkController.swift in Sources */,
+				E5DC2ACE29CC362D006D5F48 /* Double.Conversion.swift in Sources */,
+				E5DC2ACC29CC35E6006D5F48 /* HomeViewModel.swift in Sources */,
 				E5DC2AB829C6D081006D5F48 /* HomeController.swift in Sources */,
 				E5DC2AB429C6D081006D5F48 /* AppDelegate.swift in Sources */,
 				E5DC2AB629C6D081006D5F48 /* SceneDelegate.swift in Sources */,
