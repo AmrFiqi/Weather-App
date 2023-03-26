@@ -11,9 +11,9 @@ class HomeViewModel {
     
     // MARK: - Variables
     
-    var weather: Weather?
-    private var main: Weather.Main? {
-        return weather?.main
+    var weatherS: WeatherStruct?
+    private var main: WeatherStruct.Main? {
+        return weatherS?.main
     }
     
     // MARK: - Header Strings
@@ -23,25 +23,27 @@ class HomeViewModel {
 //    }
 //
     var nameString: String {
-        return String(weather?.name ?? "")
+        return String(weatherS?.name ?? "")
+    }
+    var descriptionString: String {
+        return String(weatherS?.weather.first?.weatherDescription ?? "")
+    }
+    var tempratureString: String {
+        return kelvinToC(main?.temp)
     }
     
-    var tempratureString: String {
-        return kelvinToF(main?.temp)
+    var minTempString: String {
+        return kelvinToC(main?.minTemp)
+    }
+    
+    var maxTempString: String {
+        return kelvinToC(main?.maxTemp)
     }
     
     // MARK: - SubHeader Strings
     
     var feelsLikeTempString: String {
-        return kelvinToF(main?.feelsLike)
-    }
-    
-    var minTempString: String {
-        return kelvinToF(main?.minTemp)
-    }
-    
-    var maxTempString: String {
-        return kelvinToF(main?.maxTemp)
+        return kelvinToC(main?.feelsLike)
     }
     
     var pressureString: String {
@@ -55,14 +57,14 @@ class HomeViewModel {
     // MARK: - Class Methods
     
     func fetchWeather(for cityId: Int = 2172797, _ completion: @escaping (() -> Void)) {
-        NetworkController.fetchWeather(for: cityId) { weather in
-            self.weather = weather
+        NetworkController.fetchWeather(for: cityId) { weatherS in
+            self.weatherS = weatherS
             completion()
         }
     }
     
-    func kelvinToF (_ temp: Double?) -> String {
-        return "\(String(format: "%.1f", (temp ?? 0).kelvinToFahrenheit))° F"
+    func kelvinToC (_ temp: Double?) -> String {
+        return "\(String(format: "%.1f", (temp ?? 0).kelvinToCelsius))°"
     }
     
     func valueToString(_ value: Double?) -> String {

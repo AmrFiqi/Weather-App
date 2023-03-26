@@ -8,7 +8,7 @@
 import Foundation
 
 extension Double {
-    var kelvinToFahrenheit: Double {
-        return (9.0 / 5) * (self - 273) + 32
+    var kelvinToCelsius: Double {
+        return self - 273.15
     }
 }

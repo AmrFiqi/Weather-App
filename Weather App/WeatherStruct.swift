@@ -7,9 +7,18 @@
 
 import Foundation
 
-struct Weather: Decodable {
+struct WeatherStruct: Decodable {
     var name: String
     var main: Main
+    var weather: [Weather]
+    
+    struct Weather: Decodable {
+        var weatherDescription: String
+        
+        enum CodingKeys: String, CodingKey {
+            case weatherDescription = "description"
+        }
+    }
     
     struct Main: Decodable {
         var temp: Double
@@ -28,7 +37,7 @@ struct Weather: Decodable {
     }
 }
 
-extension Weather {
+extension WeatherStruct {
     var temp: Double {
         return main.temp
     }
@@ -51,5 +60,8 @@ extension Weather {
     
     var humidity: Double {
         return main.humidity
+    }
+    var description: String {
+        return weather.first?.weatherDescription ?? "NO DESC"
     }
 }

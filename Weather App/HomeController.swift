@@ -21,35 +21,38 @@ class HomeController: UIViewController {
     @IBOutlet var maxTempLabel: UILabel!
     @IBOutlet var pressureLabel: UILabel!
     @IBOutlet var humidityLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     
     // MARK: - Class Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        setUpbackground()
         viewModel.fetchWeather { [weak self] in
             DispatchQueue.main.async {
-                self?.setupUI()
                 self?.setupHeader()
                 self?.setupSubheader()
             }
         }
     }
     
-    private func setupUI() {
-        
+    func setUpbackground() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Weather_Background.jpg")
+        self.view.insertSubview(backgroundImage, at: 0)
     }
     
     private func setupHeader() {
         tempLabel.text = viewModel.tempratureString
         nameLabel.text = viewModel.nameString
+        minTempLabel.text = viewModel.minTempString
+        maxTempLabel.text = viewModel.maxTempString
+        descriptionLabel.text = viewModel.descriptionString.capitalized
     }
     
     private func setupSubheader() {
         feelsLikeLabel.text = viewModel.feelsLikeTempString
-        minTempLabel.text = viewModel.minTempString
-        maxTempLabel.text = viewModel.maxTempString
         pressureLabel.text = viewModel.pressureString
         humidityLabel.text = viewModel.humidityString
     }

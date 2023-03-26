@@ -10,7 +10,7 @@ import Foundation
 struct NetworkController {
     
     private static var baseUrl = "api.openweathermap.org"
-    private static var appapi = ""
+    private static var appapi = "2a8520cb480639b25387f8aa2730639a"
     enum EndPoint {
         case cityId(path: String = "/data/2.5/weather", id: Int)
         
@@ -47,7 +47,7 @@ struct NetworkController {
         }
     }
     
-    static func fetchWeather(for cityId: Int, _ completion: @escaping ((Weather) -> Void)) {
+    static func fetchWeather(for cityId: Int, _ completion: @escaping ((WeatherStruct) -> Void)) {
       
         if let url = EndPoint.cityId(id: cityId).url {
             URLSession.shared.dataTask(with: url) { data, response, error in
@@ -57,7 +57,7 @@ struct NetworkController {
                 
                 if let data = data {
                     do{
-                        let weather = try JSONDecoder().decode(Weather.self, from: data)
+                        let weather = try JSONDecoder().decode(WeatherStruct.self, from: data)
                         completion(weather)
                     }
                     catch {
